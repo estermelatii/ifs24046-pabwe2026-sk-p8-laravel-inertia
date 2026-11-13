@@ -1,0 +1,103 @@
+@import 'tailwindcss';
+
+@source '../js/**/*.jsx';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Fraunces', Georgia, serif;
+
+    --color-paper: #f4f7fc;
+    --color-paper-2: #e6edf8;
+    --color-ink: #0b1f4d;
+    --color-ink-2: #14306e;
+    --color-muted: #4b5a78;
+    --color-line: #d5dff0;
+    --color-accent: #1f5fd6;
+    --color-accent-2: #1749a8;
+    --color-accent-soft: #dbe8ff;
+    --color-primary: #0b3a8f;
+    --color-danger: #b91c1c;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    button:not(:disabled),
+    [role='button'],
+    summary,
+    select,
+    label[for],
+    a {
+        cursor: pointer;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+/* Progress bar atas layar */
+.top-progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 3px;
+    z-index: 100;
+    background: linear-gradient(90deg, var(--color-accent), #38bdf8);
+    transform-origin: left;
+    animation: progress-grow 1.6s ease-out forwards;
+}
+
+@keyframes progress-grow {
+    from { transform: scaleX(0.05); }
+    to { transform: scaleX(0.92); }
+}
+
+@keyframes spin-slow {
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 1em;
+    height: 1em;
+    border-radius: 9999px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    display: inline-block;
+    animation: spin-slow 0.7s linear infinite;
+}
+
+/* Penampil/editor Markdown */
+.toastui-editor-contents {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+}
+
+.prose-article .toastui-editor-contents {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-ink);
+}
+
+.prose-article .toastui-editor-contents h1,
+.prose-article .toastui-editor-contents h2,
+.prose-article .toastui-editor-contents h3 {
+    font-family: var(--font-display);
+    border-bottom: 0;
+    margin-top: 2rem;
+}
+
+/* Siluet kota untuk hero */
+.hero-skyline {
+    background:
+        linear-gradient(180deg, rgba(11, 31, 77, 0) 40%, #0b1f4d 100%),
+        radial-gradient(60rem 30rem at 80% 0%, rgba(56, 189, 248, 0.35), transparent 60%),
+        linear-gradient(160deg, #0b1f4d 0%, #14306e 55%, #1f5fd6 130%);
+}
