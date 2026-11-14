@@ -4,7 +4,7 @@ export function formatDate(iso) {
     return iso ? new Date(iso).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
 }
 
-export default function PostCard({ post, featured = false }) {
+export default function PostCard({ post, featured = false, as: Heading = 'h3' }) {
     return (
         <article className={`group flex flex-col overflow-hidden rounded-2xl border border-line bg-white transition hover:-translate-y-0.5 hover:shadow-lg ${featured ? 'md:col-span-2 md:flex-row' : ''}`}>
             <Link href={`/articles/${post.slug}`} className={`block overflow-hidden bg-paper-2 ${featured ? 'md:w-1/2' : ''}`} tabIndex={-1} aria-hidden="true">
@@ -18,11 +18,11 @@ export default function PostCard({ post, featured = false }) {
             </Link>
             <div className="flex flex-1 flex-col p-5">
                 <span className="text-xs font-semibold uppercase tracking-widest text-accent">{post.category}</span>
-                <h3 className={`mt-2 font-display font-bold leading-snug ${featured ? 'text-2xl' : 'text-xl'}`}>
+                <Heading className={`mt-2 font-display font-bold leading-snug ${featured ? 'text-2xl' : 'text-xl'}`}>
                     <Link href={`/articles/${post.slug}`} className="hover:text-accent">
                         {post.title}
                     </Link>
-                </h3>
+                </Heading>
                 {post.excerpt && <p className="mt-2 line-clamp-3 text-muted">{post.excerpt}</p>}
                 <p className="mt-auto pt-4 text-sm text-muted">
                     {post.author} · {formatDate(post.published_at)}

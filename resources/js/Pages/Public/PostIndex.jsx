@@ -150,7 +150,7 @@ export default function PostIndex({ posts, filters, isHome }) {
                     ) : (
                         <div className="mt-8 grid gap-6 text-ink md:grid-cols-2 lg:grid-cols-3">
                             {posts.data.map((post, index) => (
-                                <PostCard key={post.id} post={post} featured={showHero && index === 0 && posts.current_page === 1} />
+                                <PostCard key={post.id} post={post} as={showHero ? 'h3' : 'h2'} featured={showHero && index === 0 && posts.current_page === 1} />
                             ))}
                         </div>
                     )}

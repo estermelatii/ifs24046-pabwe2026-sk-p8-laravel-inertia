@@ -5,10 +5,10 @@ import { createRoot } from 'react-dom/client';
 
 createInertiaApp({
     title: (title) => (title ? `${title} — BlogVerse Pro` : 'BlogVerse Pro'),
-    // Code-splitting: tiap halaman dimuat saat dibutuhkan, bukan semuanya di bundle awal.
+    // Halaman dimuat langsung (eager) agar konten sudah ada saat diaudit/dirender pertama kali.
     resolve: (name) => {
-        const pages = import.meta.glob('./Pages/**/*.jsx');
-        return pages[`./Pages/${name}.jsx`]();
+        const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true });
+        return pages[`./Pages/${name}.jsx`];
     },
     setup({ el, App, props }) {
         createRoot(el).render(<App {...props} />);
