@@ -161,6 +161,9 @@ pipeline {
 
                     echo "=== Preparing Laravel Testing Environment ==="
 
+                    mkdir -p storage/framework/views storage/framework/cache/data storage/framework/sessions storage/framework/testing storage/logs bootstrap/cache
+                    chmod -R 775 storage bootstrap/cache || true
+
                     if [ ! -f .env ]; then
                         cp .env.example .env
                     fi
