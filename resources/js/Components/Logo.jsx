@@ -2,7 +2,7 @@ import { Link } from '@inertiajs/react';
 
 export default function Logo({ light = false, href = '/' }) {
     return (
-        <Link href={href} className="flex items-center gap-2.5" aria-label="BlogVerse Pro — beranda">
+        <Link href={href} className="flex items-center gap-2.5">
             <span className={`grid h-9 w-9 place-items-center rounded-xl font-display text-lg font-bold ${light ? 'bg-paper text-ink' : 'bg-ink text-paper'}`}>
                 B
             </span>

@@ -114,7 +114,7 @@ export default function PostIndex({ posts, filters, isHome }) {
             <section className={dark ? 'bg-ink text-paper' : ''}>
                 <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
                     <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                        <h2 className="font-display text-3xl font-medium">{showHero ? 'Artikel Pilihan' : 'Semua Artikel'}</h2>
+                        {showHero ? <h2 className="font-display text-3xl font-medium">Artikel Pilihan</h2> : <h1 className="font-display text-3xl font-medium">Semua Artikel</h1>}
                         <form onSubmit={submit} role="search" className="relative w-full md:w-80">
                             <Icon name="search" className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
                             <input
