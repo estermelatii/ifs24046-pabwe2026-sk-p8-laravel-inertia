@@ -101,3 +101,9 @@
         radial-gradient(60rem 30rem at 80% 0%, rgba(56, 189, 248, 0.35), transparent 60%),
         linear-gradient(160deg, #0b1f4d 0%, #14306e 55%, #1f5fd6 130%);
 }
+
+/* Kode inline pada isi artikel: kontras >= 4.5:1 (WCAG AA) */
+.prose-article .toastui-editor-contents :not(pre) > code {
+    color: #9d174d;
+    background-color: #fce7f3;
+}

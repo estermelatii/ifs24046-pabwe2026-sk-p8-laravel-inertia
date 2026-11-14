@@ -7,7 +7,7 @@ export default function Logo({ light = false, href = '/' }) {
                 B
             </span>
             <span className={`font-display text-xl font-bold tracking-tight ${light ? 'text-paper' : 'text-ink'}`}>
-                BlogVerse <span className="text-accent">Pro</span>
+                BlogVerse <span className={light ? 'text-sky-300' : 'text-accent'}>Pro</span>
             </span>
         </Link>
     );
